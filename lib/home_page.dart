@@ -106,14 +106,15 @@ class _HomePageState extends State<HomePage> {
                   double a = double.parse(noh.text);
                   double b = double.parse(hr.text);
                   setState(() {
-                    rpay = double.parse((a * b).toStringAsFixed(2));
                     if (a > ot) {
+                      rpay = double.parse((ot * b).toStringAsFixed(2));
                       otpay = double.parse(
                           ((a - ot) * (b * otr)).toStringAsFixed(2));
                       tpay = double.parse(
-                          ((a * b) + (a - ot) * (b * otr)).toStringAsFixed(2));
+                          ((ot * b) + (a - ot) * (b * otr)).toStringAsFixed(2));
                     } else {
                       otpay = 0;
+                      rpay = double.parse((a * b).toStringAsFixed(2));
                       tpay = double.parse((a * b).toStringAsFixed(2));
                     }
                     tax = double.parse((tpay * 0.18).toStringAsFixed(2));
